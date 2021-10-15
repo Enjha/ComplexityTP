@@ -3,14 +3,12 @@ package fr.yann;
 import fr.yann.fibonacci.Fibonacci;
 import fr.yann.graph.Graph;
 import fr.yann.graph.GraphAlgorithm;
-import fr.yann.graph.Sommet;
 
-import java.io.*;
 import java.util.*;
 
 public class Main {
 
-    /*
+/*
     //Fibonacci
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -42,59 +40,23 @@ public class Main {
                 System.out.println("Veuillez entrer un choix valide.");
                 break;
         }
-    }
-     */
+    } */
 
     public static void main(String[] args) {
         ArrayList<LinkedList<Integer>> listSommet = new ArrayList<>();
-        LinkedList<Integer> trans0 = new LinkedList<>();
-        LinkedList<Integer> trans1 = new LinkedList<>();
-        LinkedList<Integer> trans2 = new LinkedList<>();
-        LinkedList<Integer> trans3 = new LinkedList<>();
-        LinkedList<Integer> trans4 = new LinkedList<>();
-        LinkedList<Integer> trans5 = new LinkedList<>();
-        LinkedList<Integer> trans6 = new LinkedList<>();
 
-        trans0.add(1);
-        trans0.add(3);
-        trans0.add(6);
-        trans0.add(4);
+        Graph graph = new Graph(listSommet,8);
+        graph.addEdge(0,1);
+        graph.addEdge(1,2);
+        graph.addEdge(1,3);
+        graph.addEdge(1,4);
+        graph.addEdge(2,5);
+        graph.addEdge(2,3);
+        graph.addEdge(2,4);
+        graph.addEdge(3,4);
+        graph.addEdge(3,6);
+        graph.addEdge(4,7);
 
-        trans1.add(0);
-        trans1.add(2);
-        trans1.add(4);
-
-        trans2.add(1);
-        trans2.add(3);
-        trans2.add(5);
-        trans2.add(6);
-
-        trans3.add(0);
-        trans3.add(2);
-        trans3.add(5);
-        trans3.add(6);
-
-        trans4.add(0);
-        trans4.add(1);
-
-        trans5.add(2);
-        trans5.add(3);
-        trans5.add(6);
-
-        trans6.add(0);
-        trans6.add(2);
-        trans6.add(3);
-        trans6.add(5);
-
-        listSommet.add(trans0);
-        listSommet.add(trans1);
-        listSommet.add(trans2);
-        listSommet.add(trans3);
-        listSommet.add(trans4);
-        listSommet.add(trans5);
-        listSommet.add(trans6);
-
-        Graph graph = new Graph(listSommet);
         GraphAlgorithm algo = new GraphAlgorithm();
 
         /* Question 1
@@ -106,14 +68,12 @@ public class Main {
         System.out.println(algo.checkDensity(graph, testDensity));
         */
 
-        /* Question 2
         System.out.println(algo.calculMaxDensity(graph));
-         */
+        System.out.println(listSommet);
 
         /* Question 3
         System.out.println(algo.calculMaxDensityFull(graph));
-         */
-
+        */
 
     }
 

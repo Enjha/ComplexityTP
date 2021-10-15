@@ -44,7 +44,6 @@ public class GraphAlgorithm {
                     tmp.remove(i);
                 }
             }
-            System.out.println(maxDensity+"  "+tmp);
             if(tmp.size() > maxDensity.size())
                 maxDensity = tmp;
             tmp = new ArrayList<>();
@@ -54,6 +53,12 @@ public class GraphAlgorithm {
 
     public ArrayList<Integer> calculMaxDensityNotFull(Graph graph) {
         ArrayList<Integer> maxDensity = new ArrayList<>();
+        Random random = new Random();
+        int randomInt = random.nextInt(graph.getListSommet().size() - 1);
+        maxDensity.add(graph.getListSommet().indexOf(graph.getListSommet().get(randomInt)));
+        for (LinkedList<Integer> neighbor: graph.getListSommet()) {
+
+        }
         return maxDensity;
     }
 }
