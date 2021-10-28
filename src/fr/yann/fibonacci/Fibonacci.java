@@ -2,30 +2,33 @@ package fr.yann.fibonacci;
 
 public class Fibonacci {
 
-    public int fibonacciRecursive(int n) {
-        if (n == 0)
-            return 0;
-        else if (n == 1)
-            return 1;
-        else
-            return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
-    }
-
-    public int fibonacciIterative(int n) {
-        int first = 0, second = 1, tmp;
-        for (int i = 0; i < n; i++) {
-            tmp = first + second;
-            first = second;
-            second = tmp;
+    // Compléxité: O(n) : O(n)
+    public long fibonacciRecursive(long n) {
+        if(n <= 1) {
+            return n;
         }
-        return first;
+        return fibonacciRecursive(n-1) + fibonacciRecursive(n-2);
     }
 
-    public void fibonacciExponentation(int n){
+    // Compléxité: O(n) : O(1)
+    public long fibonacciIterative(long n) {
+        if (n <= 1) {
+            return n;
+        }
+        long fib = 1;
+        long prevFib = 1;
+        for (int i = 2; i < n; i++) {
+            long temp = fib;
+            fib += prevFib;
+            prevFib = temp;
+        }
+        return fib;
+    }
+
+    public void fibonacciExponentation(long n) {
         final FibonacciMatrix fibonacciFinder = new FibonacciMatrix();
         System.out.println(fibonacciFinder.fib(n));
     }
-
 
 
 }

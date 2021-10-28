@@ -28,7 +28,17 @@ public class FibonacciMatrix {
         return result;
     }
 
-    public long fib(int n) {
+    private long[][] binaryExponentiation(final long n) {
+        long[][] result = new long[][]{{1, 0}, {0, 1}};
+        for (int i = 31; i >= 0; i--) {
+            if ((n & (1L << i)) != 0) {
+                result = multiply(result, exponents[i]);
+            }
+        }
+        return result;
+    }
+
+    public long fib(long n) {
         if (n < 0) {
             throw new IllegalArgumentException();
         } else if (n == 0 || n == 1) {
@@ -37,15 +47,5 @@ public class FibonacciMatrix {
             final long[][] matrix = binaryExponentiation(n - 2);
             return matrix[0][0] + matrix[0][1];
         }
-    }
-
-    private long[][] binaryExponentiation(final int n) {
-        long[][] result = new long[][]{{1, 0}, {0, 1}};
-        for (int i = 31; i >= 0; i--) {
-            if ((n & (1 << i)) != 0) {
-                result = multiply(result, exponents[i]);
-            }
-        }
-        return result;
     }
 }
